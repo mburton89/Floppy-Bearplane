@@ -14,6 +14,8 @@ public class FlopBear : MonoBehaviour
 
     private Rigidbody2D _rigidBody2D;
 
+    [SerializeField] ThrustParticleSpawner _thrustParticleSpawner;
+
     void Awake()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
@@ -25,12 +27,15 @@ public class FlopBear : MonoBehaviour
         {
             Thrust();
         }
+        else if (Input.GetKeyUp(_thrust))
+        {
+            _thrustParticleSpawner.canSpawnParticles = false;
+        }
 
         if (Input.GetKey(_turnLeft))
         {
             TurnLeft();
         }
-
         else if (Input.GetKey(_turnRight))
         {
             TurnRight();
@@ -47,7 +52,8 @@ public class FlopBear : MonoBehaviour
 
     void Thrust()
     {
-        _rigidBody2D.AddRelativeForce(Vector3.up * acceleration);
+        _rigidBody2D.AddRelativeForce(Vector3.up * acceleration * Time.deltaTime);
+        _thrustParticleSpawner.canSpawnParticles = true;
     }
 
     void TurnLeft()
