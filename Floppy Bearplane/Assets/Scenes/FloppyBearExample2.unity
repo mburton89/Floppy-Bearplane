@@ -483,7 +483,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359866293}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a31d68ef0c8b4743bdc9e48bc70c556, type: 3}
   m_Name: 
@@ -997,6 +997,7 @@ RectTransform:
   m_Children:
   - {fileID: 1947756087}
   - {fileID: 2018395069}
+  - {fileID: 1847134813}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1240,6 +1241,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1847134812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847134813}
+  - component: {fileID: 1847134815}
+  - component: {fileID: 1847134814}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1847134813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847134812}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 376.5, y: 235.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1320520495}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1847134814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847134812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1847134815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847134812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1947756086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,7 +1396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheel: {fileID: 2018395069}
-  bear: {fileID: 0}
+  bear: {fileID: 214741658}
 --- !u!1 &2005545790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,7 +1559,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -478.78, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 499, y: 499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018395070
 MonoBehaviour:
@@ -1920,11 +1987,11 @@ PrefabInstance:
       objectReference: {fileID: 214741660}
     - target: {fileID: 9089317704526127779, guid: b7fa4870f9474d741acce775c38cc0d6, type: 3}
       propertyPath: acceleration
-      value: 1200
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 9089317704526127779, guid: b7fa4870f9474d741acce775c38cc0d6, type: 3}
       propertyPath: maxSpeed
-      value: 8
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 9089317704526127780, guid: b7fa4870f9474d741acce775c38cc0d6, type: 3}
       propertyPath: _thrustParticlePrefabs.Array.size
@@ -1973,6 +2040,10 @@ PrefabInstance:
     - target: {fileID: 9089317704526127790, guid: b7fa4870f9474d741acce775c38cc0d6, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089317704526127791, guid: b7fa4870f9474d741acce775c38cc0d6, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9089317705044860786, guid: b7fa4870f9474d741acce775c38cc0d6, type: 3}
       propertyPath: m_LocalPosition.y
