@@ -30,9 +30,19 @@ public class SimplePlane : MonoBehaviour
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;
     [HideInInspector] public bool canShoot;
+    [HideInInspector] public Vector3 directionToFly;
 
-    public void Awake()
+    public void Init(bool isFacingRight)
     {
+        if (isFacingRight)
+        {
+            directionToFly = Vector3.right;
+        }
+        else
+        {
+            directionToFly = Vector3.left;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1);
+        }
         currentArmor = maxArmor;
         canShoot = true;
     }
@@ -63,7 +73,7 @@ public class SimplePlane : MonoBehaviour
 
     public void Thrust()
     {
-        rigidBody2D.AddForce(transform.right * acceleration); //Add force in the direction we're facing
+        rigidBody2D.AddForce(directionToFly * acceleration); //Add force in the direction we're facing
         currentSpeed = maxSpeed; //Set our speed to our max speed
         float randomX = Random.Range(-0.1f, 0.1f);
         float randomY = Random.Range(-0.1f, 0.1f);

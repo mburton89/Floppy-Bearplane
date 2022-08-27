@@ -7,6 +7,7 @@ public class FlopBear : MonoBehaviour
     public float acceleration;
     public float maxSpeed;
     public float turnSpeed;
+    public GameObject rocket;
 
     [SerializeField] private KeyCode _thrust;
     [SerializeField] private KeyCode _turnLeft;
@@ -52,17 +53,17 @@ public class FlopBear : MonoBehaviour
 
     void Thrust()
     {
-        _rigidBody2D.AddRelativeForce(Vector3.up * acceleration * Time.deltaTime);
+        _rigidBody2D.AddRelativeForce(rocket.transform.up * acceleration * Time.deltaTime);
         _thrustParticleSpawner.canSpawnParticles = true;
     }
 
     void TurnLeft()
     {
-        transform.Rotate(0, 0, turnSpeed * Time.deltaTime, Space.Self);
+        rocket.transform.Rotate(0, 0, turnSpeed * Time.deltaTime, Space.Self);
     }
 
     void TurnRight()
     {
-        transform.Rotate(0, 0, -turnSpeed * Time.deltaTime, Space.Self);
+        rocket.transform.Rotate(0, 0, -turnSpeed * Time.deltaTime, Space.Self);
     }
 }

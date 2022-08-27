@@ -38,5 +38,15 @@ public class PlaneSpawner : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(_xSpawnPos + _currentX, Random.Range(_minY, _maxY), 0);
         SimplePlane plane = Instantiate(_planePrefabs[Random.Range(0, _planePrefabs.Count)], spawnPos, transform.rotation, null) as SimplePlane;
+
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            plane.Init(true);
+        }
+        else
+        {
+            plane.Init(false);
+        }
     }
 }
